@@ -34,7 +34,7 @@ public class ChessGameState {
     private boolean isCheckedmateBlack;
 
     /**
-     * Contructor for class ChessGameState
+     * Constructor for class ChessGameState
      */
     public ChessGameState(){
         //initialize an empty board
@@ -66,6 +66,35 @@ public class ChessGameState {
         //game starts paused
         isPaused = true;
     }//constructor
+
+    /**
+     * Copy Constructor for class ChessGameState
+     *
+     *  @param original
+     * 	    the ChessGameState object to be cloned
+     */
+      public ChessGameState(ChessGameState original){
+          // copy the values from original array
+          board = new String[8][8];
+          for (int i = 0; i < 8; i++) {
+              for (int j = 0; j < 8; j++) {
+                  board[i][j] = original.board[i][j];
+              }
+          }
+
+          // copy player information
+          playerTurn = original.playerTurn;
+          isCheckedBlack = original.isCheckedBlack;
+          isCheckedWhite = original.isCheckedWhite;
+          isCheckedmateBlack = original.isCheckedmateBlack;
+          isCheckedmateWhite = original.isCheckedmateWhite;
+          pointsBlack = original.pointsBlack;
+          pointsWhite = original.pointsWhite;
+          secondsBlack = original.secondsBlack;
+          secondsWhite = original.secondsWhite;
+          isPaused = original.isPaused;
+      }// copy constructor
+
 
     public String getPiece(int row, int col){
         if(board == null|| row < 0 || col < 0) {
