@@ -81,17 +81,28 @@ public class ChessGameState {
                   board[i][j] = original.board[i][j];
               }
           }
-
           // copy player information
+
+          // update the player turn number
           playerTurn = original.playerTurn;
+
+          // update whether a player is in check
           isCheckedBlack = original.isCheckedBlack;
           isCheckedWhite = original.isCheckedWhite;
+
+          // update whether a player is in checkmate
           isCheckedmateBlack = original.isCheckedmateBlack;
           isCheckedmateWhite = original.isCheckedmateWhite;
+
+          // update number of points for each player
           pointsBlack = original.pointsBlack;
           pointsWhite = original.pointsWhite;
+
+          // update game clock for each player
           secondsBlack = original.secondsBlack;
           secondsWhite = original.secondsWhite;
+
+          // update whether game is paused
           isPaused = original.isPaused;
       }// copy constructor
 
