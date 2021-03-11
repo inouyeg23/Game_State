@@ -36,18 +36,19 @@ public class ChessGameState {
     public boolean gameStarted;
     public boolean drawInitiated;
     public boolean forfeitInitiated;
-    public boolean playagainInitiated;
+    public boolean playAgainInitiated;
 
     public int currPlayer;
 
-    public int selectedPiece;
+    public boolean highlightedPawnMove;
+    public boolean highlightedKnightMove;
+    public boolean highlightedRookMove;
+    public boolean highlightedBishopMove;
+    public boolean highlightedKingMove;
+    public boolean highlightedQueenMove;
 
-    public boolean movedPawn;
-    public boolean movedKnight;
-    public boolean movedRook;
-    public boolean movedBishop;
-    public boolean movedKing;
-    public boolean movedQueen;
+
+
 
     /**
      * Contructor for class ChessGameState
@@ -138,34 +139,86 @@ public class ChessGameState {
     }
 
     public boolean gamePaused(){
-        if(isPaused){
-            return true;
-        } else {
-            return false;
-        }
+        //this will be implemented using game framework; not required for game
+        //state assignment
+        return false;
     }
 
-    public boolean movePiece(){
+    public boolean isLegal(int row, int col){
+        //checking if the current player is in check
+        //0 for black, 1 for white
+        if((currPlayer == 0 && !isCheckedBlack) || (currPlayer == 1 && !isCheckedWhite)){
+            //checking if space is empty
+            if(board[row][col] == " "){
+                //space is empty
+                return true;
+            } else {
+                //space occupied by another place
+                return false;
+            }
+        } else {
+            //a player was in check so couldn't move
+            return false;
+        }
+
+    }
+
+
+    /**
+     * selectedMove refers to something to be implemented later
+     * it will return a value based on what the user selected
+     * to move the piece in that spot.
+     *
+     * highlighted_____Move is currently a boolean but may change to
+     * boolean method to list out possible moves for that specific piece
+     */
+    public boolean movePiece(int row, int col, int selectRow, int selectCol, String selectedPiece){
+        selectedPiece = getPiece(row, col);
         if(currPlayer == playerTurn){
             //determines the piece and reflects the given player action
             switch (selectedPiece){
-                case 0:
-                    movedPawn = true;
+                case "pawn":
+                    if(highlightedPawnMove) {
+                        if (isLegal(selectRow, selectCol)) {
+                            setPiece(selectRow, selectCol, selectedPiece);
+                        }
+                    }
                     break;
-                case 1:
-                    movedKnight = true;
+                case "knight":
+                    if(highlightedKnightMove) {
+                        if (isLegal(selectRow, selectCol)) {
+                            setPiece(selectRow, selectCol, selectedPiece);
+                        }
+                    }
                     break;
-                case 2:
-                    movedRook = true;
+                case "rook":
+                    if(highlightedRookMove) {
+                        if (isLegal(selectRow, selectCol)) {
+                            setPiece(selectRow, selectCol, selectedPiece);
+                        }
+                    }
                     break;
-                case 3:
-                    movedBishop = true;
+                case "bishop":
+                    if(highlightedBishopMove) {
+                        if (isLegal(selectRow, selectCol)) {
+                            setPiece(selectRow, selectCol, selectedPiece);
+                        }
+                    }
                     break;
-                case 4:
-                    movedKing = true;
+                case "king":
+                    if(highlightedKingMove) {
+                        if(board[row][col] == " ") {
+                            //space is empty
+                            setPiece(selectRow, selectCol, selectedPiece);
+                        }
+                    }
                     break;
-                case 5:
-                    movedQueen = true;
+                case "queen":
+                    if(highlightedQueenMove) {
+                        if (isLegal(selectRow, selectCol)) {
+                            setPiece(selectRow, selectCol, selectedPiece);
+                        }
+                    }
                     break;
             }
             //moves on the next player
@@ -184,7 +237,10 @@ public class ChessGameState {
     }
 
     public boolean drawOffered(){
+        //drawInitiated would turn true or false based on button onClick
         if(drawInitiated){
+            //this will be implemented using game framework; not required for game
+            //state assignment
             return true;
         } else {
             return false;
@@ -192,16 +248,22 @@ public class ChessGameState {
 
     }
 
+    //forfeitInitiated would turn true or false based on button onClick
     public boolean forfeitGame(){
         if(forfeitInitiated){
+            //this will be implemented using game framework; not required for game
+            //state assignment
             return true;
         } else {
             return false;
         }
     }
 
+    //playAgainInitiated would turn true or false based on button onClick
     public boolean playAgain(){
-        if(playagainInitiated){
+        if(playAgainInitiated){
+            //this will be implemented using game framework; not required for game
+            //state assignment
             return true;
         } else {
             return false;
