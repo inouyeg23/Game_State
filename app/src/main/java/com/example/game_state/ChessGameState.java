@@ -2,8 +2,6 @@ package com.example.game_state;
 
 /**
  * @authors: Jonah Ingler,
- *
- *
  */
 
 public class ChessGameState {
@@ -108,7 +106,6 @@ public class ChessGameState {
         }
         board[row][col] = piece;
     }
-
 
     /**
      * toString method
@@ -273,6 +270,8 @@ public class ChessGameState {
         }
     }
 
+
+    //getter and setter for player turn
     public int getPlayerTurn() {
         return playerTurn;
     }
@@ -280,13 +279,13 @@ public class ChessGameState {
         playerTurn = player;
     }
 
+    //getter and setter for points
     public int getPointsBlack() {
         return pointsBlack;
     }
     public void setPointsBlack(int pointsBlack) {
         this.pointsBlack = pointsBlack;
     }
-
     public int getPointsWhite() {
         return pointsWhite;
     }
@@ -294,13 +293,13 @@ public class ChessGameState {
         this.pointsWhite = pointsWhite;
     }
 
+    //getter and setter for time
     public int getSecondsBlack() {
         return secondsBlack;
     }
     public void setSecondsBlack(int secondsBlack) {
         this.secondsBlack = secondsBlack;
     }
-
     public int getSecondsWhite() {
         return secondsWhite;
     }
@@ -308,13 +307,13 @@ public class ChessGameState {
         this.secondsWhite = secondsWhite;
     }
 
+    //set boolean checked condition, and get checked condition
     public boolean isCheckedBlack() {
         return isCheckedBlack;
     }
     public void setCheckedBlack(boolean checkedBlack) {
         isCheckedBlack = checkedBlack;
     }
-
     public boolean isCheckedWhite() {
         return isCheckedWhite;
     }
@@ -322,13 +321,13 @@ public class ChessGameState {
         isCheckedBlack = checkedWhite;
     }
 
+    //set boolean checkmated condition, and get checkmated condition
     public boolean isCheckedmateBlack() {
         return isCheckedmateBlack;
     }
     public void setCheckedmateBlack(boolean checkedmateBlack) {
         isCheckedmateBlack = checkedmateBlack;
     }
-
     public boolean isCheckedmateWhite() {
         return isCheckedmateWhite;
     }
@@ -336,13 +335,12 @@ public class ChessGameState {
         isCheckedmateWhite = checkedmateWhite;
     }
 
+    //set paused boolean and check paused boolean
     public boolean isPaused() {
         return isPaused;
     }
     public void setPaused(boolean paused) {
         isPaused = paused;
     }
-
-
-
-}//class ChessGameState
+//GameState class
+}
