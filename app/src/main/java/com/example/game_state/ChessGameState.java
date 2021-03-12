@@ -33,22 +33,25 @@ public class ChessGameState {
     private boolean isCheckedmateWhite;
     private boolean isCheckedmateBlack;
 
+    //booleans to work with onClick method and check if valid
     public boolean gameStarted;
     public boolean drawInitiated;
     public boolean forfeitInitiated;
     public boolean playAgainInitiated;
 
+    //different from playerTurn, it holds the current player rather than
+    //the whole game switching between players to make sure it is
+    //that players turn
     public int currPlayer;
 
+    //variables that may hold a pool of valid moves, may change to methods later
     public boolean highlightedPawnMove;
     public boolean highlightedKnightMove;
     public boolean highlightedRookMove;
     public boolean highlightedBishopMove;
     public boolean highlightedKingMove;
     public boolean highlightedQueenMove;
-
-
-
+    
 
     /**
      * Contructor for class ChessGameState
