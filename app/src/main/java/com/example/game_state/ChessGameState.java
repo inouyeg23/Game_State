@@ -1,7 +1,8 @@
 package com.example.game_state;
 
 /**
- * @authors: Jonah Ingler,
+ * @authors: Jonah Ingler, Garrett Inouye, Logan Machida, Connor Morgan
+ *
  */
 
 public class ChessGameState {
@@ -32,6 +33,7 @@ public class ChessGameState {
     private boolean isCheckedmateBlack;
 
     //booleans to work with onClick method and check if valid
+
     public boolean gameStarted;
     public boolean drawInitiated;
     public boolean forfeitInitiated;
@@ -49,10 +51,9 @@ public class ChessGameState {
     public boolean highlightedBishopMove;
     public boolean highlightedKingMove;
     public boolean highlightedQueenMove;
-    
 
     /**
-     * Contructor for class ChessGameState
+     * Constructor for class ChessGameState
      */
     public ChessGameState(){
         //initialize an empty board
@@ -86,6 +87,61 @@ public class ChessGameState {
         isPaused = true;
 
     }//constructor
+
+    /**
+     * Copy Constructor for class ChessGameState
+     *
+     *  @param original
+     * 	    the ChessGameState object to be cloned
+     */
+      public ChessGameState(ChessGameState original){
+          // copy the values from original array
+          board = new String[8][8];
+          for (int i = 0; i < 8; i++) {
+              for (int j = 0; j < 8; j++) {
+                  board[i][j] = original.board[i][j];
+              }
+          }
+          // copy player information
+
+          // update which player's turn it is
+          playerTurn = original.playerTurn;
+
+          // update whether a player is in check
+          isCheckedBlack = original.isCheckedBlack;
+          isCheckedWhite = original.isCheckedWhite;
+
+          // update whether a player is in checkmate
+          isCheckedmateBlack = original.isCheckedmateBlack;
+          isCheckedmateWhite = original.isCheckedmateWhite;
+
+          // update number of points for each player
+          pointsBlack = original.pointsBlack;
+          pointsWhite = original.pointsWhite;
+
+          // update game clock for each player
+          secondsBlack = original.secondsBlack;
+          secondsWhite = original.secondsWhite;
+
+          // update whether game is paused
+          isPaused = original.isPaused;
+
+          // new variables
+          gameStarted = original.gameStarted;
+          drawInitiated = original.drawInitiated;
+          forfeitInitiated = original.forfeitInitiated;
+          playAgainInitiated = original.playAgainInitiated;
+
+          currPlayer = original.currPlayer;
+
+          highlightedPawnMove = original.highlightedPawnMove;
+          highlightedKnightMove = original.highlightedKnightMove;
+          highlightedRookMove = original.highlightedRookMove;
+          highlightedBishopMove = original.highlightedBishopMove;
+          highlightedKingMove = original.highlightedKingMove;
+          highlightedQueenMove = original.highlightedQueenMove;
+      }// copy constructor
+
 
     public String getPiece(int row, int col){
         if(board == null|| row < 0 || col < 0) {
