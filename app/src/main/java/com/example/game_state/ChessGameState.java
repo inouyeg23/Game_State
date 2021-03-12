@@ -33,6 +33,21 @@ public class ChessGameState {
     private boolean isCheckedmateWhite;
     private boolean isCheckedmateBlack;
 
+    // new variables
+    public boolean gameStarted;
+    public boolean drawInitiated;
+    public boolean forfeitInitiated;
+    public boolean playAgainInitiated;
+
+    public int currPlayer;
+
+    public boolean highlightedPawnMove;
+    public boolean highlightedKnightMove;
+    public boolean highlightedRookMove;
+    public boolean highlightedBishopMove;
+    public boolean highlightedKingMove;
+    public boolean highlightedQueenMove;
+
     /**
      * Constructor for class ChessGameState
      */
@@ -65,6 +80,21 @@ public class ChessGameState {
 
         //game starts paused
         isPaused = true;
+
+        // new variables
+        gameStarted = false;
+        drawInitiated = false;
+        forfeitInitiated = false;
+        playAgainInitiated = false;
+
+        currPlayer = 0;
+
+        highlightedPawnMove = false;
+        highlightedKnightMove = false;
+        highlightedRookMove = false;
+        highlightedBishopMove = false;
+        highlightedKingMove = false;
+        highlightedQueenMove = false;
     }//constructor
 
     /**
@@ -83,7 +113,7 @@ public class ChessGameState {
           }
           // copy player information
 
-          // update the player turn number
+          // update which player's turn it is
           playerTurn = original.playerTurn;
 
           // update whether a player is in check
@@ -104,6 +134,21 @@ public class ChessGameState {
 
           // update whether game is paused
           isPaused = original.isPaused;
+
+          // new variables
+          gameStarted = original.gameStarted;
+          drawInitiated = original.drawInitiated;
+          forfeitInitiated = original.forfeitInitiated;
+          playAgainInitiated = original.playAgainInitiated;
+
+          currPlayer = original.currPlayer;
+
+          highlightedPawnMove = original.highlightedPawnMove;
+          highlightedKnightMove = original.highlightedKnightMove;
+          highlightedRookMove = original.highlightedRookMove;
+          highlightedBishopMove = original.highlightedBishopMove;
+          highlightedKingMove = original.highlightedKingMove;
+          highlightedQueenMove = original.highlightedQueenMove;
       }// copy constructor
 
 
