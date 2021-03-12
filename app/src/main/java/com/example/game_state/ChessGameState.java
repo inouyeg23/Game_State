@@ -1,7 +1,7 @@
 package com.example.game_state;
 
 /**
- * @authors: Jonah Ingler,
+ * @authors: Jonah Ingler, Garrett Inouye, Logan Machida, Connor Morgan
  *
  *
  */
